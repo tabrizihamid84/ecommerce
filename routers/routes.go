@@ -1,7 +1,14 @@
 package routers
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/tabrizihamid84/ecommerce/controllers"
+)
 
 func UserRoutes(incomingRoutes *gin.Engine) {
-	incomingRoutes.Post()
+	incomingRoutes.POST("/users/signup", controllers.SignUp())
+	incomingRoutes.POST("/users/login", controllers.Login())
+	incomingRoutes.POST("/admin/addproduct", controllers.ProductViewerAdmin())
+	incomingRoutes.GET("/users/productview", controllers.SearchProduct())
+	incomingRoutes.GET("/users/search", controllers.SearchProductByQuery())
 }
